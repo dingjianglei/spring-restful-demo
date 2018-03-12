@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.validation.ValidationException;
-import java.util.ArrayList;
 
 
 @ControllerAdvice

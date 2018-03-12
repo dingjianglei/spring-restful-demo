@@ -2,7 +2,6 @@ package com.hello.params;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotNull;
 
 /**
  * 用户登录参数实体类
