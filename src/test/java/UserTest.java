@@ -1,6 +1,6 @@
 public class UserTest {
     public  void test(){
         System.out.println("djl-test");
-        System.out.println("djl-test2");//ÎÒµÄ²âÊÔ
+        System.out.println("djl-test2");//test
     }
 }
