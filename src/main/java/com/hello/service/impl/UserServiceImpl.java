@@ -4,6 +4,7 @@ import com.hello.exception.BusinessException;
 import com.hello.model.User;
 import com.hello.service.UserService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,10 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl  implements UserService{
+    @Value("${user.test.userName}")
+    private String userName;
+    @Value("${user.test.password}")
+    private String password;
     @Override
     public List<User> getAllUser() {
         List<User>  resList=new ArrayList<User>();
@@ -26,7 +31,7 @@ public class UserServiceImpl  implements UserService{
         if(StringUtils.isEmpty(loginName)||StringUtils.isEmpty(pwd)){
             throw new RuntimeException("参数缺失");
         }
-        if("jianglei".equals(loginName)&&"123".equals(pwd)){
+        if(StringUtils.equals(userName,loginName)&&StringUtils.equals(pwd,password)){
             User loginUser= new User();
             loginUser.setName(loginName);
             loginUser.setAge(26);
@@ -41,7 +46,7 @@ public class UserServiceImpl  implements UserService{
         if(StringUtils.isEmpty(loginName)||StringUtils.isEmpty(pwd)){
             throw new RuntimeException("参数缺失");
         }
-        if("jianglei".equals(loginName)){
+        if(StringUtils.equals(userName,loginName)){
             throw new BusinessException("用户名已被占用");
         }
         //执行注册操作 TODO
